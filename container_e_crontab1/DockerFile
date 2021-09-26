@@ -19,6 +19,9 @@ CMD ["ln", "-s", "/usr/share/zoneinfo/Brazil/DeNoronha /etc/localtime"]
 
 RUN echo "*/5 * * * * date >> /home/Documents/saida.txt" > /etc/cron.d/cron-teste
 
+#Adiciona permissão de execução
+CMD ["chmod", "0644", "/etc/cron.d/cron-teste"]
+
 #apontar o arquivo para o daemon do crontab
 CMD ["crontab", "/etc/cron.d/cron-teste"]
 
